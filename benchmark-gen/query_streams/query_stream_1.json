@@ -1,0 +1,113 @@
+{
+  "database_id": 1,
+  "scale_factor": 1,
+  "database_byte_count": 1000000000,
+  "size_bucket": 9,
+  "pattern_id": 4,
+  "cpu_time": 6661405,
+  "cpu_time_h":"0.00185039h",
+  "query_count": 25,
+  "queries": [
+    {
+      "query_id": 3,
+      "start": 2095104,
+      "arguments": ["MACHINERY","1995-03-28"]
+    },{
+      "query_id": 21,
+      "start": 2136862,
+      "arguments": ["ROMANIA"]
+    },{
+      "query_id": 5,
+      "start": 2193424,
+      "arguments": ["EUROPE","1993-01-01"]
+    },{
+      "query_id": 16,
+      "start": 2209900,
+      "arguments": ["Brand#33","LARGE PLATED",16,1,37,34,10,41,20,31]
+    },{
+      "query_id": 20,
+      "start": 2212535,
+      "arguments": ["powder","1996-01-01","KENYA"]
+    },{
+      "query_id": 11,
+      "start": 2230273,
+      "arguments": ["INDIA",1]
+    },{
+      "query_id": 2,
+      "start": 2237551,
+      "arguments": [49,"COPPER","AMERICA"]
+    },{
+      "query_id": 5,
+      "start": 2292576,
+      "arguments": ["MIDDLE EAST","1993-01-01"]
+    },{
+      "query_id": 12,
+      "start": 2336968,
+      "arguments": ["REG AIR","FOB","1994-01-01"]
+    },{
+      "query_id": 21,
+      "start": 2343511,
+      "arguments": ["RUSSIA"]
+    },{
+      "query_id": 11,
+      "start": 2380611,
+      "arguments": ["EGYPT",1]
+    },{
+      "query_id": 21,
+      "start": 2391827,
+      "arguments": ["CANADA"]
+    },{
+      "query_id": 8,
+      "start": 2435315,
+      "arguments": ["ETHIOPIA","AFRICA","SMALL ANODIZED NICKEL"]
+    },{
+      "query_id": 18,
+      "start": 2478348,
+      "arguments": [315]
+    },{
+      "query_id": 15,
+      "start": 2598569,
+      "arguments": ["1993-02-01"]
+    },{
+      "query_id": 4,
+      "start": 2684875,
+      "arguments": ["1993-02-01"]
+    },{
+      "query_id": 12,
+      "start": 2710120,
+      "arguments": ["AIR","RAIL","1995-01-01"]
+    },{
+      "query_id": 12,
+      "start": 2752474,
+      "arguments": ["MAIL","FOB","1997-01-01"]
+    },{
+      "query_id": 14,
+      "start": 2798860,
+      "arguments": ["1997-07-01"]
+    },{
+      "query_id": 2,
+      "start": 2806813,
+      "arguments": [14,"BRASS","AFRICA"]
+    },{
+      "query_id": 2,
+      "start": 2836067,
+      "arguments": [3,"BRASS","ASIA"]
+    },{
+      "query_id": 13,
+      "start": 2867924,
+      "arguments": ["pending","packages"]
+    },{
+      "query_id": 11,
+      "start": 2886298,
+      "arguments": ["ALGERIA",1]
+    },{
+      "query_id": 14,
+      "start": 2899320,
+      "arguments": ["1995-10-01"]
+    },{
+      "query_id": 8,
+      "start": 2901391,
+      "arguments": ["INDONESIA","ASIA","STANDARD BURNISHED STEEL"]
+    }
+  ]
+}

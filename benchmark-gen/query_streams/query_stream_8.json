@@ -1,0 +1,101 @@
+{
+  "database_id": 8,
+  "scale_factor": 24,
+  "database_byte_count": 24000000000,
+  "size_bucket": 10,
+  "pattern_id": 4,
+  "cpu_time": 11335742,
+  "cpu_time_h":"0.00314882h",
+  "query_count": 22,
+  "queries": [
+    {
+      "query_id": 9,
+      "start": 2462870,
+      "arguments": ["lavender"]
+    },{
+      "query_id": 23,
+      "start": 2491002,
+      "arguments": [143856000,144000032,0,7]
+    },{
+      "query_id": 16,
+      "start": 2537338,
+      "arguments": ["Brand#55","LARGE POLISHED",15,5,41,39,48,43,33,34]
+    },{
+      "query_id": 18,
+      "start": 2569776,
+      "arguments": [315]
+    },{
+      "query_id": 16,
+      "start": 2604465,
+      "arguments": ["Brand#22","MEDIUM BRUSHED",27,30,1,35,40,49,20,34]
+    },{
+      "query_id": 2,
+      "start": 2640843,
+      "arguments": [25,"BRASS","EUROPE"]
+    },{
+      "query_id": 19,
+      "start": 2677964,
+      "arguments": ["Brand#41","Brand#55","Brand#53",2,20,24]
+    },{
+      "query_id": 19,
+      "start": 2723918,
+      "arguments": ["Brand#24","Brand#34","Brand#34",7,14,21]
+    },{
+      "query_id": 20,
+      "start": 2752109,
+      "arguments": ["orange","1994-01-01","ALGERIA"]
+    },{
+      "query_id": 15,
+      "start": 2798406,
+      "arguments": ["1995-12-01"]
+    },{
+      "query_id": 21,
+      "start": 2822068,
+      "arguments": ["MOZAMBIQUE"]
+    },{
+      "query_id": 16,
+      "start": 2855160,
+      "arguments": ["Brand#45","PROMO BRUSHED",18,22,24,9,30,23,3,31]
+    },{
+      "query_id": 1,
+      "start": 2900897,
+      "arguments": [66]
+    },{
+      "query_id": 6,
+      "start": 2921222,
+      "arguments": ["1994-01-01",6,25]
+    },{
+      "query_id": 5,
+      "start": 2976585,
+      "arguments": ["AFRICA","1997-01-01"]
+    },{
+      "query_id": 15,
+      "start": 3009636,
+      "arguments": ["1993-02-01"]
+    },{
+      "query_id": 15,
+      "start": 3024099,
+      "arguments": ["1995-06-01"]
+    },{
+      "query_id": 13,
+      "start": 3081940,
+      "arguments": ["unusual","accounts"]
+    },{
+      "query_id": 19,
+      "start": 3122299,
+      "arguments": ["Brand#21","Brand#41","Brand#43",5,11,20]
+    },{
+      "query_id": 16,
+      "start": 3156988,
+      "arguments": ["Brand#52","PROMO POLISHED",32,7,18,29,8,37,28,39]
+    },{
+      "query_id": 18,
+      "start": 3190598,
+      "arguments": [313]
+    },{
+      "query_id": 4,
+      "start": 3230467,
+      "arguments": ["1997-03-01"]
+    }
+  ]
+}

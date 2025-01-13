@@ -1,0 +1,45 @@
+{
+  "database_id": 9,
+  "scale_factor": 33,
+  "database_byte_count": 33000000000,
+  "size_bucket": 11,
+  "pattern_id": 4,
+  "cpu_time": 59107441,
+  "cpu_time_h":"0.0164187h",
+  "query_count": 8,
+  "queries": [
+    {
+      "query_id": 15,
+      "start": 2361374,
+      "arguments": ["1997-04-01"]
+    },{
+      "query_id": 9,
+      "start": 2374384,
+      "arguments": ["thistle"]
+    },{
+      "query_id": 6,
+      "start": 2387182,
+      "arguments": ["1995-01-01",9,25]
+    },{
+      "query_id": 2,
+      "start": 2393287,
+      "arguments": [3,"BRASS","EUROPE"]
+    },{
+      "query_id": 12,
+      "start": 2426512,
+      "arguments": ["AIR","RAIL","1993-01-01"]
+    },{
+      "query_id": 5,
+      "start": 2454190,
+      "arguments": ["AMERICA","1994-01-01"]
+    },{
+      "query_id": 16,
+      "start": 2495967,
+      "arguments": ["Brand#32","MEDIUM BRUSHED",11,46,29,25,33,7,1,27]
+    },{
+      "query_id": 22,
+      "start": 2538980,
+      "arguments": [32,34,33,23,28,27,17]
+    }
+  ]
+}

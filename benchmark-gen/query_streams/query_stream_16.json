@@ -1,0 +1,101 @@
+{
+  "database_id": 16,
+  "scale_factor": 320,
+  "database_byte_count": 320000000000,
+  "size_bucket": 12,
+  "pattern_id": 4,
+  "cpu_time": 13514190,
+  "cpu_time_h":"0.00375394h",
+  "query_count": 22,
+  "queries": [
+    {
+      "query_id": 4,
+      "start": 1333963,
+      "arguments": ["1997-03-01"]
+    },{
+      "query_id": 6,
+      "start": 1387671,
+      "arguments": ["1996-01-01",5,25]
+    },{
+      "query_id": 20,
+      "start": 1410291,
+      "arguments": ["wheat","1996-01-01","BRAZIL"]
+    },{
+      "query_id": 15,
+      "start": 1448693,
+      "arguments": ["1995-03-01"]
+    },{
+      "query_id": 17,
+      "start": 1501750,
+      "arguments": ["Brand#43","SM DRUM"]
+    },{
+      "query_id": 16,
+      "start": 1523647,
+      "arguments": ["Brand#35","PROMO ANODIZED",4,37,42,11,31,48,30,24]
+    },{
+      "query_id": 19,
+      "start": 1572822,
+      "arguments": ["Brand#35","Brand#41","Brand#21",4,19,25]
+    },{
+      "query_id": 1,
+      "start": 1619676,
+      "arguments": [80]
+    },{
+      "query_id": 21,
+      "start": 1633892,
+      "arguments": ["KENYA"]
+    },{
+      "query_id": 9,
+      "start": 1665546,
+      "arguments": ["linen"]
+    },{
+      "query_id": 5,
+      "start": 1710081,
+      "arguments": ["MIDDLE EAST","1993-01-01"]
+    },{
+      "query_id": 23,
+      "start": 1746339,
+      "arguments": [1918080000,1920000032,0,7]
+    },{
+      "query_id": 1,
+      "start": 1788107,
+      "arguments": [81]
+    },{
+      "query_id": 22,
+      "start": 1812495,
+      "arguments": [23,20,13,27,26,11,31]
+    },{
+      "query_id": 16,
+      "start": 1862474,
+      "arguments": ["Brand#43","MEDIUM ANODIZED",49,7,40,36,1,27,31,30]
+    },{
+      "query_id": 9,
+      "start": 1889368,
+      "arguments": ["moccasin"]
+    },{
+      "query_id": 8,
+      "start": 1915550,
+      "arguments": ["FRANCE","EUROPE","PROMO POLISHED NICKEL"]
+    },{
+      "query_id": 13,
+      "start": 1970226,
+      "arguments": ["special","accounts"]
+    },{
+      "query_id": 2,
+      "start": 2014536,
+      "arguments": [43,"BRASS","EUROPE"]
+    },{
+      "query_id": 10,
+      "start": 2050701,
+      "arguments": ["1994-06-01"]
+    },{
+      "query_id": 4,
+      "start": 2086883,
+      "arguments": ["1994-07-01"]
+    },{
+      "query_id": 14,
+      "start": 2098381,
+      "arguments": ["1993-05-01"]
+    }
+  ]
+}

@@ -1,0 +1,125 @@
+{
+  "database_id": 7,
+  "scale_factor": 17,
+  "database_byte_count": 17000000000,
+  "size_bucket": 10,
+  "pattern_id": 4,
+  "cpu_time": 179441252,
+  "cpu_time_h":"0.0498448h",
+  "query_count": 28,
+  "queries": [
+    {
+      "query_id": 23,
+      "start": 403104,
+      "arguments": [101898016,102000032,0,7]
+    },{
+      "query_id": 22,
+      "start": 432822,
+      "arguments": [25,34,32,27,15,28,33]
+    },{
+      "query_id": 11,
+      "start": 443174,
+      "arguments": ["KENYA",17]
+    },{
+      "query_id": 18,
+      "start": 460985,
+      "arguments": [314]
+    },{
+      "query_id": 2,
+      "start": 462010,
+      "arguments": [46,"STEEL","EUROPE"]
+    },{
+      "query_id": 11,
+      "start": 477982,
+      "arguments": ["IRAN",17]
+    },{
+      "query_id": 9,
+      "start": 484599,
+      "arguments": ["brown"]
+    },{
+      "query_id": 20,
+      "start": 510361,
+      "arguments": ["moccasin","1995-01-01","VIETNAM"]
+    },{
+      "query_id": 2,
+      "start": 525526,
+      "arguments": [17,"STEEL","AMERICA"]
+    },{
+      "query_id": 2,
+      "start": 527747,
+      "arguments": [15,"BRASS","MIDDLE EAST"]
+    },{
+      "query_id": 5,
+      "start": 540728,
+      "arguments": ["EUROPE","1995-01-01"]
+    },{
+      "query_id": 14,
+      "start": 548749,
+      "arguments": ["1995-04-01"]
+    },{
+      "query_id": 15,
+      "start": 563567,
+      "arguments": ["1994-01-01"]
+    },{
+      "query_id": 4,
+      "start": 579356,
+      "arguments": ["1993-09-01"]
+    },{
+      "query_id": 16,
+      "start": 585166,
+      "arguments": ["Brand#34","MEDIUM POLISHED",38,35,40,5,6,49,7,11]
+    },{
+      "query_id": 11,
+      "start": 617948,
+      "arguments": ["ALGERIA",17]
+    },{
+      "query_id": 3,
+      "start": 623314,
+      "arguments": ["AUTOMOBILE","1995-03-18"]
+    },{
+      "query_id": 21,
+      "start": 656515,
+      "arguments": ["GERMANY"]
+    },{
+      "query_id": 8,
+      "start": 712277,
+      "arguments": ["JAPAN","ASIA","STANDARD ANODIZED COPPER"]
+    },{
+      "query_id": 19,
+      "start": 738408,
+      "arguments": ["Brand#44","Brand#12","Brand#34",5,12,30]
+    },{
+      "query_id": 9,
+      "start": 763142,
+      "arguments": ["coral"]
+    },{
+      "query_id": 5,
+      "start": 806908,
+      "arguments": ["AFRICA","1994-01-01"]
+    },{
+      "query_id": 20,
+      "start": 827763,
+      "arguments": ["turquoise","1994-01-01","MOZAMBIQUE"]
+    },{
+      "query_id": 23,
+      "start": 842290,
+      "arguments": [101796000,101898016,0,7]
+    },{
+      "query_id": 16,
+      "start": 866667,
+      "arguments": ["Brand#41","LARGE BRUSHED",32,8,37,47,5,33,45,22]
+    },{
+      "query_id": 22,
+      "start": 891285,
+      "arguments": [24,26,20,31,28,29,19]
+    },{
+      "query_id": 15,
+      "start": 897273,
+      "arguments": ["1996-06-01"]
+    },{
+      "query_id": 18,
+      "start": 919038,
+      "arguments": [312]
+    }
+  ]
+}

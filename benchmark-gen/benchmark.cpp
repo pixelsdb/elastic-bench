@@ -13,29 +13,31 @@
 #include <cmath>
 
 using namespace std;
-
+//都是生成各种随机数的
 struct Utility {
    static vector<double> GenerateDeterministicLogNormal(uint64_t count, double mean, double sd, uint64_t cut_off, uint64_t seed)
    {
+      // 参数为样本数量、均值、标准差、跳过的样本数量、随机种子
       // Generate large sample
-      mt19937 gen(seed);
-      lognormal_distribution<> dist(mean, sd);
-      vector<double> over_samples(1000 * count);
+      mt19937 gen(seed);// 初始化随机数生成器，使用给定的随机种子
+      lognormal_distribution<> dist(mean, sd);// 定义对数正态分布
+      vector<double> over_samples(1000 * count);// 创建一个比目标样本数多1000倍的样本容器
       for (double &over_sample : over_samples) {
-         over_sample = dist(gen);
+         over_sample = dist(gen);//生成对数随机数
       }
-      sort(over_samples.begin(), over_samples.end());
+      sort(over_samples.begin(), over_samples.end());//排序
 
       // Sample the sample
-      vector<double> result(count);
-      double segment_count = count + cut_off * 2 + 1;
+      vector<double> result(count); // 最终结果容器，大小为 count
+      double segment_count = count + cut_off * 2 + 1;//cut_off * 2 是为了忽略两端的极值段（cut_off 表示跳过的段数）。+1 是为了确保计算分段时包含边界。
       double segment_count_width = over_samples.size() / segment_count;
       for (uint64_t i = cut_off; i<count + cut_off * 2; i++) {
-         result[i] = over_samples[segment_count_width * i]; // TODO: fix don't start at 0
+         result[i] = over_samples[segment_count_width * i]; // TODO: fix don't start at 0。先这样吧，或许可以改成i-cutoff试试
       }
 
       return result;
    }
+   //用于生成一组伪随机的对数正态分布样本
 
    // https://en.wikipedia.org/wiki/Triangular_distribution
    static double GenerateTriangleValue(double a, double b, double c, mt19937 &gen)
@@ -46,10 +48,10 @@ struct Utility {
       if (U<F) {
          return a + sqrt(U * (b - a) * (c - a));
       } else {
-         return b - sqrt((1 - U) * (b - a) * (b - c));
+         return b - sqrt((1 - U) * (b - a) * (b - c));//公式，概率密度都是线性的
       }
    }
-
+   //用于生成一组三角分布的随机数
    static double GenerateNonExtremeNormal(double mean, double sd, mt19937 &gen)
    {
       normal_distribution<> dist(mean, sd);
@@ -59,48 +61,61 @@ struct Utility {
       }
       return result;
    }
+   //去掉两个西格玛外的离群值
 };
 
+//主要用于生成 TPC-H（一个标准化的数据库性能测试基准）查询的参数。
 struct TpchQueries {
+   //基本常量列表
    struct Arguments {
       // TPC-H 4.2.3
       inline constexpr static std::array<const char *, 5> regions = {"AFRICA", "AMERICA", "ASIA", "EUROPE", "MIDDLE EAST"};
       inline constexpr static std::array<int32_t, 25> nation_to_region = {0, 1, 1, 1, 4, 0, 3, 3, 2, 2, 4, 4, 2, 4, 0, 0, 0, 1, 2, 3, 4, 2, 3, 3, 1};
+      //这是国家和洲的对应关系
       inline constexpr static std::array<const char *, 25> nations = {"ALGERIA", "ARGENTINA", "BRAZIL", "CANADA", "EGYPT", "ETHIOPIA", "FRANCE", "GERMANY", "INDIA", "INDONESIA", "IRAN", "IRAQ", "JAPAN", "JORDAN", "KENYA", "MOROCCO", "MOZAMBIQUE", "PERU", "CHINA", "ROMANIA", "SAUDI ARABIA", "VIETNAM", "RUSSIA", "UNITED KINGDOM", "UNITED STATES"};
-
+      //constexpr 表示变量是一个 编译时常量。编译器在编译期间计算出其值，并将其视为不可更改的常量。
       // TPC-H 4.2.2.13
       struct Type {
          inline constexpr static std::array<const char *, 6> syllable1 = {"STANDARD", "SMALL", "MEDIUM", "LARGE", "ECONOMY", "PROMO"};
          inline constexpr static std::array<const char *, 5> syllable2 = {"ANODIZED", "BURNISHED", "PLATED", "POLISHED", "BRUSHED"};
          inline constexpr static std::array<const char *, 5> syllable3 = {"TIN", "NICKEL", "BRASS", "STEEL", "COPPER"};
       };
+      //三种物品分类
       struct Container {
          inline constexpr static std::array<const char *, 5> syllable1 = {"SM", "LG", "MED", "JUMBO", "WRAP"};
          inline constexpr static std::array<const char *, 8> syllable2 = {"CASE", "BOX", "BAG", "JAR", "PKG", "PACK", "CAN", "DRUM"};
       };
+      //包装尺寸和类型
       inline constexpr static std::array<const char *, 5> segments = {"AUTOMOBILE", "BUILDING", "FURNITURE", "MACHINERY", "HOUSEHOLD"};
       inline constexpr static std::array<const char *, 92> colors = {"almond", "antique", "aquamarine", "azure", "beige", "bisque", "black", "blanched", "blue", "blush", "brown", "burlywood", "burnished", "chartreuse", "chiffon", "chocolate", "coral", "cornflower", "cornsilk", "cream", "cyan", "dark", "deep", "dim", "dodger", "drab", "firebrick", "floral", "forest", "frosted", "gainsboro", "ghost", "goldenrod", "green", "grey", "honeydew", "hot", "indian", "ivory", "khaki", "lace", "lavender", "lawn", "lemon", "light", "lime", "linen", "magenta", "maroon", "medium", "metallic", "midnight", "mint", "misty", "moccasin", "navajo", "navy", "olive", "orange", "orchid", "pale", "papaya", "peach", "peru", "pink", "plum", "powder", "puff", "purple", "red", "rose", "rosy", "royal", "saddle", "salmon", "sandy", "seashell", "sienna", "sky", "slate", "smoke", "snow", "spring", "steel", "tan", "thistle", "tomato", "turquoise", "violet", "wheat", "white", "yellow"};
       inline constexpr static std::array<const char *, 7> mode = {"REG AIR", "AIR", "RAIL", "SHIP", "TRUCK", "MAIL", "FOB"};
+      //行业、颜色、运输
    };
-
+   //UpdateState负责管理更新状态并生成与更新有关的参数。这些参数用于 TPC-H 查询中动态变化的数据集或场景。
    struct UpdateState {
       uint32_t update_count; // for one rotation; splits relation into 'update_count' blocks that are updated together
+      //表示更新分块的总数，将整个数据集分成 update_count 个更新块。在一个完整的轮次（rotation）中，数据被分成若干块，每次更新一个块。
       uint32_t rotation; // which of the keys 0: 0-7, 1: 8-15, 2: 16-23, 3: 24-31
+      //表示更新的轮次，用于标识当前更新块的区间。
       uint32_t update; // current update update_count ... 1
+      //当前处理的快编号
 
       explicit UpdateState(uint32_t update_count)
               : update_count(update_count)
                 , rotation(0)
                 , update(update_count) {}
-
+      //构造函数
+      //GenerateNext根据 scale_factor和当前状态生成更新的参数范围。每次调用都会更新状态，返回一个描述更新块范围的字符串列表。
       std::vector<std::string> GenerateNext(uint64_t scale_factor)
       {
-         const uint64_t order_count = scale_factor * 1500000;
-         const uint64_t max_order_key = 1 + order_count * 4;
+         const uint64_t order_count = scale_factor * 1500000; //1500000 是基础数据规模
+         const uint64_t max_order_key = 1 + order_count * 4;//每个订单可能对应 4 个键值。、
          const uint64_t group_count = 1 + max_order_key / 32;
          const uint64_t first_group = (group_count * (update - 1)) / update_count;
          const uint64_t last_group = (group_count * update) / update_count;
-         assert(group_count>=update_count);
+         assert(group_count>=update_count);  
+         //总订单数量、最大订单键，组数，当前更新起始组和中止组
+         //assert确保分组数足够分配给更新块。
 
          std::vector<std::string> result;
          result.push_back(to_string(first_group * 32));
@@ -108,25 +123,34 @@ struct TpchQueries {
          result.push_back(to_string(rotation * 8));
          result.push_back(to_string((rotation + 1) * 8 - 1));
 
+         //当前更新组的键值范围、和轮次的范围
+         // which of the keys 0: 0-7, 1: 8-15, 2: 16-23, 3: 24-31
          update--;
          if (update == 0) {
             update = update_count;
             rotation = (rotation + 1) % 4;
          }
-
+         //轮次取模4加1
          return result;
       }
    };
+   //示例：
+   //UpdateState state(4); // update_count = 4, rotation = 0, update = 4
+   //result = {"4500000", "6000032", "0", "7"};
+   //
+
 
    static string TwoDigitNumber(uint32_t num)
    {
       return (num<10 ? "0" : "") + to_string(num);
    }
+   //变字符串、小于10补0
 
    static string QStr(const string &str)
    {
       return "\"" + str + "\"";
    }
+   //加引号
 
    static vector<string> GenerateQueryArguments(int query_id, uint64_t scale_factor, mt19937 &gen, UpdateState &update_state)
    {
@@ -290,16 +314,22 @@ struct TpchQueries {
             }
             return result;
          }
+         //前22个是随机生成22条查询中的可变参数
          case 23: {
             return update_state.GenerateNext(scale_factor);
          }
          default: {
             throw;
          }
+         //第23个是根据当前的 update_count 和 rotation 返回更新块的参数范围。更新原始订单数据，如果我没理解错
       }
    }
 };
+//提供了一些工具方法，用于对一个存储浮点数的向量（vector<double>）进行各种操作，比如：
 
+//添加波形、随机噪声、序列等不同的模式。
+//将这些模式组合以模拟复杂的分布。
+//进行简单的向量操作（如求和、归一化、时间分配）。
 struct Vector {
    static void AddSinusHead(vector<double> &scales, double intensity, double start_ratio, double width)
    {
@@ -316,7 +346,7 @@ struct Vector {
          }
       }
    }
-
+   //加正弦波
    static void AddRandomNoise(vector<double> &scales, mt19937 &gen, double intensity, double likelihood)
    {
       uniform_real_distribution dist(0.0, 1.0);
@@ -330,7 +360,7 @@ struct Vector {
          }
       }
    }
-
+   //添加随机噪声
    static void AddSequence(vector<double> &scales, double intensity, double start_ratio, double length_ratio)
    {
       uint32_t start = start_ratio * scales.size();
@@ -343,6 +373,7 @@ struct Vector {
          }
       }
    }
+   //添加固定强度的连续序列
 
    static void OnOffPattern(vector<double> &scales, mt19937 &gen, double intensity, uint32_t spike_count, double length)
    {
@@ -359,7 +390,7 @@ struct Vector {
          }
       }
    }
-
+   //添加脉冲信号
    static void OnOffPatternNoise(vector<double> &scales, mt19937 &gen, double intensity, uint32_t spike_count, double length)
    {
       uniform_real_distribution dist(0.0, 1.0);
@@ -377,6 +408,7 @@ struct Vector {
          }
       }
    }
+   //添加有随机脉冲的信号
 
    static void AddSequenceRandomNoise(vector<double> &scales, mt19937 &gen, double intensity, double start_ratio, double length_ratio)
    {
@@ -391,6 +423,7 @@ struct Vector {
          }
       }
    }
+   //添加带随机噪声的连续序列。
 
    static void AddRandomWalk(vector<double> &scales, mt19937 &gen, double intensity, double start_ratio, double length_ratio)
    {
@@ -415,7 +448,7 @@ struct Vector {
          }
       }
    }
-
+   //添加随机游走信号。
    static vector<uint64_t> ToCpuTime(vector<double> &scales, uint64_t total_cpu_time)
    {
       double sum = Sum(scales);
@@ -427,7 +460,7 @@ struct Vector {
       }
       return cpu_time_in_slot;
    }
-
+   //计算总cpu时间
    static double Sum(vector<double> &scales)
    {
       double sum = 0.0;
@@ -445,13 +478,13 @@ struct Generator {
    static uint64_t GetSeedForPatterns() { return 496; }
    static uint64_t GetSeedForQueries() { return 8128; }
    static uint64_t GetSeedForQueryArguments() { return 33550336; }
-
+   //静态种子
    vector<Database> databases;
-
+   //把数据块大小转化为scale_factor
    static double SizeToScaleFactor(double size)
    {
       const double scale_factor = std::round(size / 1_GB);
-      return scale_factor == 0 ? 1 : scale_factor;
+      return scale_factor == 0 ? 1 : scale_factor;//保证其至少为1
    }
 
    void GenerateDatabases(uint64_t database_count, uint64_t total_size)
@@ -460,7 +493,7 @@ struct Generator {
 
       // Q200
       double mean = 24.66794;
-      double sd = 2.575434;
+      double sd = 2.575434;//乐
       while (true) {
          db_sizes = Utility::GenerateDeterministicLogNormal(database_count, mean, sd, 0, GetSeedForDatabaseCount());
          double sum = 0;
@@ -488,6 +521,7 @@ struct Generator {
          this->databases[idx].scale_factor = SizeToScaleFactor(db_sizes[idx]);
       }
    }
+   //生成数据库，指定数量，用对数随机分布，求和，反复衡量大小，保证其在总大小0.95-1之间。方法似乎有点笨，用数学解每个数据库大小的近似解很费劲吗
 
    void GenerateFixedDatabases(uint64_t database_count, uint64_t scale_factor, uint64_t cpu_hours)
    {
@@ -498,6 +532,7 @@ struct Generator {
          this->databases[idx].cpu_time = cpu_hours * 3600e6;
       }
    }
+   //这个是生成都相同的数据库实例，测试具有均匀负载的环境。
 
    // A database of a particular size has a certain query count .. it's logtriangle distributed -> these are the values for the triangle distribution
    static uint64_t RollQueryCount(const Database &database, mt19937 &gen)
@@ -514,7 +549,7 @@ struct Generator {
          default: throw;
       }
    }
-
+   //查询数量与 CPU 时间的生成，根据数据库的大小桶（size_bucket），生成对应的查询数量。查询数量基于三角分布生成，并通过指数函数进行转换。
    // A database of a particular size uses a certain cpu time .. it's lognormal distributed -> these are the values for the normal distribution
    static uint64_t RollCpuTime(const Database &database, mt19937 &gen)
    {
@@ -530,6 +565,7 @@ struct Generator {
          default: throw;
       }
    }
+   //根据数据库的桶，生成对应的 CPU 时间。CPU 时间基于正态分布生成，并通过指数函数进行转换。
 
    void GenerateCpuTimeForDatabases(uint64_t total_cpu_hours)
    {
@@ -554,6 +590,7 @@ struct Generator {
       uniform_real_distribution<double> rdist(0.0, 1.0);
 
       // Define different query arrival patterns throughout the time
+      //这是一个模式的模板，以下是定义的不同模式，这些模式用前面提到的vector的各种函数叠加生成
       struct Pattern {
          uint32_t pattern_id;
          string description;
@@ -605,13 +642,14 @@ struct Generator {
       }});
 
       // Setup random number generator to pick a pattern, given their likelihoods
+      // 计算总权重，保证大于0
       double total_likelihood = accumulate(patterns.begin(), patterns.end(), 0.0, [](double sum, const Pattern &p) { return sum + p.likelihood; });
       assert(total_likelihood>0.0);
       uniform_real_distribution pattern_dist(0.0, total_likelihood);
 
       // Assign a pattern to each database
       for (auto &database: databases) {
-         start:
+         start://定义一个标签 start，用于在生成失败时重新开始模式分配过程。
          const bool use_ids = false;
          if (!use_ids) {
             // Choose a pattern
@@ -631,6 +669,7 @@ struct Generator {
                break;
             }
          } else {
+            // 使用固定的模式 ID 分配模式（当前未启用）
             auto &pattern = patterns[database.database_id];
 
             database.query_count_slots.clear();
@@ -647,8 +686,9 @@ struct Generator {
          }
       }
    }
+   //
 
-   static uint64_t EstimateTimeForQuery(uint32_t query_id, uint64_t scale_factor)
+   static uint64_t EstimateTimeForQuery(uint32_t query_id, uint64_t scale_factor)//估算查询时间，这个是会根据经验吧，不同数据块这个肯定是不同的。
    {
       switch (query_id) { // Times 8, because of 8 cores per machine
          case 1: return scale_factor * 149560 * 8;
@@ -685,7 +725,7 @@ struct Generator {
          sum += EstimateTimeForQuery(query_id, scale_factor);
       }
       return sum / 23;
-   }
+   }//求平均
 
    static uint32_t GetRandomQuery(mt19937 &gen, Database &database)
    {
@@ -699,7 +739,7 @@ struct Generator {
 //            query_id = query_dist(gen);
 //         }
          return query_id;
-      }
+      }//根据数据块是否是只读的返回查询编号
    }
 
    // Generates queries for each time slot using the exponential distribution.
@@ -749,7 +789,7 @@ struct Generator {
          });
       }
    }
-
+   //基于查询到达的模式和 CPU 时间分布，生成查询到达的时间点。
    void GenerateQueryArguments()
    {
       mt19937 gen(GetSeedForQueryArguments());

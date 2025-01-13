@@ -1,0 +1,37 @@
+{
+  "database_id": 12,
+  "scale_factor": 82,
+  "database_byte_count": 82000000000,
+  "size_bucket": 11,
+  "pattern_id": 4,
+  "cpu_time": 77919534,
+  "cpu_time_h":"0.0216443h",
+  "query_count": 6,
+  "queries": [
+    {
+      "query_id": 13,
+      "start": 2475742,
+      "arguments": ["special","deposits"]
+    },{
+      "query_id": 3,
+      "start": 2496437,
+      "arguments": ["FURNITURE","1995-03-16"]
+    },{
+      "query_id": 3,
+      "start": 2532264,
+      "arguments": ["BUILDING","1995-03-21"]
+    },{
+      "query_id": 9,
+      "start": 2565262,
+      "arguments": ["light"]
+    },{
+      "query_id": 14,
+      "start": 2772526,
+      "arguments": ["1995-07-01"]
+    },{
+      "query_id": 11,
+      "start": 2925458,
+      "arguments": ["IRAQ",82]
+    }
+  ]
+}

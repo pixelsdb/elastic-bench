@@ -1,0 +1,33 @@
+{
+  "database_id": 14,
+  "scale_factor": 155,
+  "database_byte_count": 155000000000,
+  "size_bucket": 11,
+  "pattern_id": 3,
+  "cpu_time": 240796709,
+  "cpu_time_h":"0.066888h",
+  "query_count": 5,
+  "queries": [
+    {
+      "query_id": 19,
+      "start": 794858,
+      "arguments": ["Brand#54","Brand#23","Brand#54",7,13,30]
+    },{
+      "query_id": 4,
+      "start": 812724,
+      "arguments": ["1997-06-01"]
+    },{
+      "query_id": 9,
+      "start": 830705,
+      "arguments": ["lace"]
+    },{
+      "query_id": 17,
+      "start": 865321,
+      "arguments": ["Brand#35","WRAP CAN"]
+    },{
+      "query_id": 15,
+      "start": 926073,
+      "arguments": ["1996-10-01"]
+    }
+  ]
+}

@@ -1,0 +1,61 @@
+{
+  "database_id": 15,
+  "scale_factor": 218,
+  "database_byte_count": 218000000000,
+  "size_bucket": 11,
+  "pattern_id": 3,
+  "cpu_time": 189265844,
+  "cpu_time_h":"0.0525738h",
+  "query_count": 12,
+  "queries": [
+    {
+      "query_id": 2,
+      "start": 2133945,
+      "arguments": [48,"BRASS","EUROPE"]
+    },{
+      "query_id": 10,
+      "start": 2176283,
+      "arguments": ["1993-03-01"]
+    },{
+      "query_id": 5,
+      "start": 2204119,
+      "arguments": ["EUROPE","1996-01-01"]
+    },{
+      "query_id": 10,
+      "start": 2872772,
+      "arguments": ["1993-11-01"]
+    },{
+      "query_id": 3,
+      "start": 2905064,
+      "arguments": ["MACHINERY","1995-03-01"]
+    },{
+      "query_id": 21,
+      "start": 2922767,
+      "arguments": ["SAUDI ARABIA"]
+    },{
+      "query_id": 8,
+      "start": 2968546,
+      "arguments": ["CHINA","ASIA","LARGE BRUSHED NICKEL"]
+    },{
+      "query_id": 2,
+      "start": 3003342,
+      "arguments": [44,"COPPER","ASIA"]
+    },{
+      "query_id": 10,
+      "start": 3029156,
+      "arguments": ["1994-10-01"]
+    },{
+      "query_id": 6,
+      "start": 3068862,
+      "arguments": ["1997-01-01",8,25]
+    },{
+      "query_id": 21,
+      "start": 3114413,
+      "arguments": ["INDIA"]
+    },{
+      "query_id": 3,
+      "start": 3141041,
+      "arguments": ["AUTOMOBILE","1995-03-11"]
+    }
+  ]
+}

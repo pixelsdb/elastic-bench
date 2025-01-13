@@ -1,0 +1,105 @@
+{
+  "database_id": 0,
+  "scale_factor": 1,
+  "database_byte_count": 1000000000,
+  "size_bucket": 9,
+  "pattern_id": 3,
+  "cpu_time": 3910622,
+  "cpu_time_h":"0.00108628h",
+  "query_count": 23,
+  "queries": [
+    {
+      "query_id": 20,
+      "start": 888603,
+      "arguments": ["slate","1997-01-01","PERU"]
+    },{
+      "query_id": 10,
+      "start": 903332,
+      "arguments": ["1994-08-01"]
+    },{
+      "query_id": 18,
+      "start": 940957,
+      "arguments": [312]
+    },{
+      "query_id": 22,
+      "start": 974397,
+      "arguments": [17,21,28,14,27,33,32]
+    },{
+      "query_id": 16,
+      "start": 1009294,
+      "arguments": ["Brand#42","MEDIUM POLISHED",27,30,11,25,29,4,13,20]
+    },{
+      "query_id": 3,
+      "start": 1288032,
+      "arguments": ["BUILDING","1995-03-09"]
+    },{
+      "query_id": 8,
+      "start": 1307082,
+      "arguments": ["UNITED KINGDOM","EUROPE","LARGE POLISHED BRASS"]
+    },{
+      "query_id": 2,
+      "start": 1346711,
+      "arguments": [10,"NICKEL","AMERICA"]
+    },{
+      "query_id": 5,
+      "start": 1374511,
+      "arguments": ["AFRICA","1995-01-01"]
+    },{
+      "query_id": 10,
+      "start": 1404516,
+      "arguments": ["1994-11-01"]
+    },{
+      "query_id": 1,
+      "start": 1454152,
+      "arguments": [106]
+    },{
+      "query_id": 23,
+      "start": 1491261,
+      "arguments": [5994016,6000032,0,7]
+    },{
+      "query_id": 19,
+      "start": 1528617,
+      "arguments": ["Brand#12","Brand#45","Brand#33",4,19,28]
+    },{
+      "query_id": 12,
+      "start": 1551054,
+      "arguments": ["SHIP","RAIL","1997-01-01"]
+    },{
+      "query_id": 8,
+      "start": 1656670,
+      "arguments": ["CANADA","AMERICA","LARGE BURNISHED BRASS"]
+    },{
+      "query_id": 20,
+      "start": 1711009,
+      "arguments": ["misty","1996-01-01","ETHIOPIA"]
+    },{
+      "query_id": 20,
+      "start": 1741686,
+      "arguments": ["sienna","1995-01-01","ETHIOPIA"]
+    },{
+      "query_id": 11,
+      "start": 1774968,
+      "arguments": ["JORDAN",1]
+    },{
+      "query_id": 7,
+      "start": 1778410,
+      "arguments": ["UNITED STATES","SAUDI ARABIA"]
+    },{
+      "query_id": 2,
+      "start": 1806836,
+      "arguments": [25,"NICKEL","MIDDLE EAST"]
+    },{
+      "query_id": 21,
+      "start": 2766485,
+      "arguments": ["ARGENTINA"]
+    },{
+      "query_id": 23,
+      "start": 2774746,
+      "arguments": [5988000,5994016,0,7]
+    },{
+      "query_id": 3,
+      "start": 2850395,
+      "arguments": ["AUTOMOBILE","1995-03-14"]
+    }
+  ]
+}

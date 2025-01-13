@@ -1,0 +1,93 @@
+{
+  "database_id": 5,
+  "scale_factor": 8,
+  "database_byte_count": 8000000000,
+  "size_bucket": 10,
+  "pattern_id": 3,
+  "cpu_time": 73761660,
+  "cpu_time_h":"0.0204894h",
+  "query_count": 20,
+  "queries": [
+    {
+      "query_id": 22,
+      "start": 1443465,
+      "arguments": [34,23,12,19,28,17,25]
+    },{
+      "query_id": 17,
+      "start": 1445586,
+      "arguments": ["Brand#51","MED BAG"]
+    },{
+      "query_id": 11,
+      "start": 1449215,
+      "arguments": ["JORDAN",8]
+    },{
+      "query_id": 10,
+      "start": 1449817,
+      "arguments": ["1994-10-01"]
+    },{
+      "query_id": 7,
+      "start": 1454124,
+      "arguments": ["MOZAMBIQUE","IRAQ"]
+    },{
+      "query_id": 8,
+      "start": 1482200,
+      "arguments": ["ALGERIA","AFRICA","STANDARD ANODIZED NICKEL"]
+    },{
+      "query_id": 16,
+      "start": 1482778,
+      "arguments": ["Brand#51","LARGE POLISHED",35,11,27,23,9,47,14,45]
+    },{
+      "query_id": 8,
+      "start": 1493913,
+      "arguments": ["GERMANY","EUROPE","STANDARD POLISHED BRASS"]
+    },{
+      "query_id": 3,
+      "start": 1508525,
+      "arguments": ["MACHINERY","1995-03-28"]
+    },{
+      "query_id": 8,
+      "start": 1512655,
+      "arguments": ["RUSSIA","EUROPE","PROMO ANODIZED BRASS"]
+    },{
+      "query_id": 11,
+      "start": 1540497,
+      "arguments": ["ARGENTINA",8]
+    },{
+      "query_id": 1,
+      "start": 1544457,
+      "arguments": [107]
+    },{
+      "query_id": 17,
+      "start": 1556014,
+      "arguments": ["Brand#22","WRAP CAN"]
+    },{
+      "query_id": 7,
+      "start": 1567266,
+      "arguments": ["BRAZIL","ARGENTINA"]
+    },{
+      "query_id": 6,
+      "start": 1572154,
+      "arguments": ["1993-01-01",5,24]
+    },{
+      "query_id": 13,
+      "start": 1577987,
+      "arguments": ["pending","accounts"]
+    },{
+      "query_id": 23,
+      "start": 1599415,
+      "arguments": [47952000,48000032,0,7]
+    },{
+      "query_id": 17,
+      "start": 1602789,
+      "arguments": ["Brand#55","MED BOX"]
+    },{
+      "query_id": 19,
+      "start": 2148662,
+      "arguments": ["Brand#25","Brand#22","Brand#31",7,11,29]
+    },{
+      "query_id": 5,
+      "start": 2153725,
+      "arguments": ["ASIA","1997-01-01"]
+    }
+  ]
+}
