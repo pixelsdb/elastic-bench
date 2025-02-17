@@ -17,6 +17,7 @@ struct Database {
 
    bool is_read_only = false;
    uint64_t cpu_time; // In a full day
+   uint64_t io_bytes;
 
    std::vector<double> query_count_slots;
    uint32_t pattern_id;

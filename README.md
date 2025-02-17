@@ -32,3 +32,7 @@ A set of java script programs for running and analyzing the benchmark results.
 
 ### ``cab/snowset-analysis``
 All R scripts we used to analyze the snowset and to plot the results of the benchmark run.
+
+# main change
+
+1 add detailed notes
