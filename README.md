@@ -5,10 +5,12 @@ The key function of the benchmark is to allow developers to evaluate and optimiz
 
 Our code is somewhat based on CAB, but we have made the following modifications and optimizations to enhance functionality:
 
-Removed the randomness in mode selection and fixed the generation of query flows for 5 different modes.
+1.Removed the randomness in mode selection and fixed the generation of query flows for 5 different modes.
 
-The original code only used CPU time to fit the modes and generate query flows. We added additional dimensions for users to choose from in generating these dimensions.
+2.The original code only used CPU time to fit the modes and generate query flows. We added additional dimensions for users to choose from in generating these dimensions.
 
-The original code had high randomness in the mode generation process, and it was only based on data analysis from a single day of the dataset. We now directly randomly select data from the dataset to fit the model.
+3.The original code had high randomness in the mode generation process, and it was only based on data analysis from a single day of the dataset. We now directly randomly select data from the dataset to fit the model.
 
-The original code was not friendly for load prediction and required the DBMS to run for a long time to simulate the query flow again. After optimization, we now directly provide the database information from previous queries instead of regenerating the query flow.
+4.The original code was not friendly for load prediction and required the DBMS to run for a long time to simulate the query flow again. After optimization, we now directly provide the database information from previous queries instead of regenerating the query flow.
+
+The content with bug fixes will be committed toda
