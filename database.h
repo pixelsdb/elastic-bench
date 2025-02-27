@@ -14,13 +14,14 @@ struct Database {
    uint64_t scale_factor; // TPC-H scale factor
    uint64_t GetByteCount() const { return scale_factor * 1_GB; }
    uint64_t GetSizeBucket() const { return round(log(scale_factor * 1_GB) / log(10)); }
-
+   uint64_t scanned_bytes; // 添加到 Database 结构体中
    bool is_read_only = false;
    uint64_t cpu_time; // In a full day
    uint64_t io_bytes;
 
    std::vector<double> query_count_slots;
    uint32_t pattern_id;
+   std::vector<int> pattern_ids;       // 新增：存储多个模式ID
    std::string pattern_description;
 
    struct Query {
@@ -50,33 +51,51 @@ struct Database {
    }
 
    void WriteJson(std::ostream &os) const
-   {
-      const char nl = '\n';
-      os << "{" << nl;
-      os << "  \"database_id\": " << database_id << "," << nl;
-      os << "  \"scale_factor\": " << scale_factor << "," << nl;
-      os << "  \"database_byte_count\": " << GetByteCount() << "," << nl;
-      os << "  \"size_bucket\": " << GetSizeBucket() << "," << nl;
-      os << "  \"pattern_id\": " << pattern_id << "," << nl;
-      os << "  \"cpu_time\": " << cpu_time << "," << nl;
-      os << "  \"cpu_time_h\":" << "\"" << (cpu_time / 1e6 / 3600) << "h\"" << "," << nl;
-      os << "  \"query_count\": " << queries.size() << "," << nl;
-      os << "  \"queries\": [" << nl << "    ";
-      for (uint32_t idx = 0; idx<queries.size(); idx++) {
-         auto &query = queries[idx];
-         os << "{" << nl;
-         os << "      \"query_id\": " << query.query_id << "," << nl;
-         os << "      \"start\": " << query.start << "," << nl;
-         os << "      \"arguments\": [";
-         for (uint32_t idx = 0; idx<query.arguments.size(); idx++) {
-            os << (idx>0 ? "," : "") << query.arguments[idx];
-         }
-         os << "]" << nl;
-         os << "    }" << (idx + 1<queries.size() ? "," : "");
-      }
-      os << nl << "  ]" << nl;
-      os << "}" << nl;
+{
+   const char nl = '\n';
+   os << "{" << nl;
+   os << "  \"database_id\": " << database_id << "," << nl;
+   os << "  \"scale_factor\": " << scale_factor << "," << nl;
+   os << "  \"database_byte_count\": " << GetByteCount() << "," << nl;
+   os << "  \"size_bucket\": " << GetSizeBucket() << "," << nl;
+   
+   // 显示模式信息
+   os << "  \"pattern_ids\": [";
+   for (size_t i = 0; i < pattern_ids.size(); ++i) {
+      os << (i > 0 ? ", " : "") << pattern_ids[i];
    }
+   os << "]," << nl;
+   
+   os << "  \"pattern_description\": \"" << pattern_description << "\"," << nl;
+   
+   // 根据模式输出相应的预算
+   if (cpu_time > 0) {
+      os << "  \"cpu_time\": " << cpu_time << "," << nl;
+      os << "  \"cpu_time_h\": \"" << (cpu_time / 1e6 / 3600) << "h\"," << nl;
+   }
+   
+   if (scanned_bytes > 0) {
+      os << "  \"scanned_bytes\": " << scanned_bytes << "," << nl;
+      os << "  \"scanned_bytes_gb\": \"" << (scanned_bytes / (1024.0 * 1024 * 1024)) << "GB\"," << nl;
+   }
+   
+   os << "  \"query_count\": " << queries.size() << "," << nl;
+   os << "  \"queries\": [" << nl << "    ";
+   for (uint32_t idx = 0; idx < queries.size(); idx++) {
+      auto &query = queries[idx];
+      os << "{" << nl;
+      os << "      \"query_id\": " << query.query_id << "," << nl;
+      os << "      \"start\": " << query.start << "," << nl;
+      os << "      \"arguments\": [";
+      for (uint32_t idx = 0; idx < query.arguments.size(); idx++) {
+         os << (idx > 0 ? "," : "") << query.arguments[idx];
+      }
+      os << "]" << nl;
+      os << "    }" << (idx + 1 < queries.size() ? "," : "");
+   }
+   os << nl << "  ]" << nl;
+   os << "}" << nl;
+}
 
    void Read(std::istream &is)
    {
