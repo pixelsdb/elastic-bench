@@ -70,7 +70,7 @@ g++ -o benchmark *.cpp -std=c++11
 # 生成具有模式1、数据集大小为10GB、总cputime为24小时和8小时持续时间的查询流
 ./benchmark -p 1 -s 10 -c 24 -t 8
 
-# 生成具有组合模式2和5、数据集大小为100GB、总cputime为24小时和4小时持续时间的查询流
+# 生成具有组合模式2和5、数据集大小为100GB、总scanned_bytes为24小时和4小时持续时间的查询流
 ./benchmark -p 2 5 -s 100 -c 50 -t 4 -mode bytes
 ```
 
