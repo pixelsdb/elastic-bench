@@ -12,7 +12,7 @@
 #include <cstring>
 #include <tuple>
 #include <ctime>
-#include <iomanip>  // 为 setprecision 添加
+#include <iomanip>  
 #include <vector>
 using namespace std;
 unsigned myseed = time(nullptr); 
@@ -769,7 +769,7 @@ struct Generator {
               os << "  ]\n";
               os << "}\n";
               
-              cout << "生成时间槽信息文件: " << filename << endl;
+              cout << "Generated history cputime of each slot : " << filename << endl;
           }
       }
   }
@@ -792,7 +792,7 @@ int main(int argc, char **argv) {
             }
         }else if (strcmp(argv[i], "-s") == 0 && i+1 < argc) {
             scale_factor = atoi(argv[++i]);
-        } else if (strcmp(argv[i], "-cpu") == 0 && i+1 < argc) {
+        } else if (strcmp(argv[i], "-c") == 0 && i+1 < argc) {
             cpu_hours = atoi(argv[++i]);
         } else if (strcmp(argv[i], "-t") == 0 && i+1 < argc) {
             duration = atoi(argv[++i]);
@@ -805,7 +805,7 @@ int main(int argc, char **argv) {
             }
         } else {
             cerr << "Unknown parameter: " << argv[i] << endl;
-            cerr << "Usage: " << argv[0] << " -p <pattern> -d <intensity> -s <scale> -cpu <hours> -t <duration> [-mode bytes]" << endl;
+            cerr << "Usage: " << argv[0] << " -p <pattern> -d <intensity> -s <scale> -c <hours/bytes> -t <duration> [-mode bytes]" << endl;
             return 1;
         }
     }
@@ -828,8 +828,8 @@ int main(int argc, char **argv) {
 
     // 创建输出目录
     struct stat st;
-    if (stat("query_streams", &st) != 0) {
-        mkdir("query_streams", 0755);
+    if (stat("../query_streams", &st) != 0) {
+        mkdir("..query_streams", 0755);
     }
 
 string pattern_str;
@@ -839,7 +839,7 @@ for (auto pid : pattern_ids) {
 }
 
 string mode_str = use_bytes_mode ? "bytes" : "cpu";
-string baseFilename = "query_streams/query_stream_p" + pattern_str +
+string baseFilename = "../query_streams/query_stream_p" + pattern_str +
                  "_s" + to_string(scale_factor) +
                  "_" + mode_str + to_string(cpu_hours) +
                  "_t" + to_string(duration);
