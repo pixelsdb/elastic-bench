@@ -87,7 +87,3 @@ g++ -o benchmark *.cpp -std=c++11
 - Cloud Analytics Benchmark (CAB), VLDB 2023
 - [Snowset](https://github.com/resource-disaggregation/snowset) - Snowflake工作负载数据集
 - [Redset](https://github.com/amazon-science/redset) - Amazon Redshift工作负载数据集
-
-## 致谢
-
-本项目在卞昊穹教授、阎世杰和李文博师兄的指导下开发。他们的专业知识和宝贵建议对项目的完成起到了重要作用。
